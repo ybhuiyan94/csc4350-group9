@@ -1,0 +1,7 @@
+# These are packages installed by npm, run npm install
+node_modules/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
