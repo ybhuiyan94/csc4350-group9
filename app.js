@@ -1,4 +1,6 @@
+var createError = require('http-errors');
 var express = require('express');
+var path = require('path');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
@@ -9,10 +11,14 @@ var User = require('./models/user');
 var app = express();
 
 // set our application port
-app.set('port', 9000);
+//app.set('port', 9000);
 
 // set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -128,6 +134,4 @@ app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
 });
 
-
-// start the express server
-app.listen(app.get('port'), () => console.log(`App started on port ${app.get('port')}`));
+module.exports = app;
