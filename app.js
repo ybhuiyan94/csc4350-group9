@@ -128,6 +128,15 @@ app.get('/logout', (req, res) => {
     }
 });
 
+// route for Settings
+app.get('/settings', (req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+        res.sendFile(__dirname + '/public/settings.html');
+    } else {
+        res.redirect('/login');
+    }
+});
+
 
 // route for handling 404 requests(unavailable routes)
 app.use(function (req, res, next) {
