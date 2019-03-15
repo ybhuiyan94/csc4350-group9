@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Group9 Parking</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            #map {
+            height: 50%;
+            }
+            html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Group 9 Parking Project</h1>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/settings">Settings</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container row">
+           <h1>Hi, Welcome to your Dashboard</h1>
+        </div>
+        <div id="map"></div>
+        <script>
+            var map;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 33.752795, lng: -84.386559},
+                    zoom: 14
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhoDxyH4OatYrE4y8i2f7k9op2E70Ynrc&callback=initMap"
+            async defer>
+        </script>
+    </body>
+</html>
