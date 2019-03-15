@@ -2,6 +2,60 @@
     <head>
         <title>Register</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script type="text/javascript">
+
+          function checkPassword(str)
+          {
+            // at least one number, one lowercase and one uppercase letter
+            // at least seven characters that are letters, numbers or the underscore
+            var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{7,}$/;//password format
+            return re.test(str);
+          }
+
+          function checkForm(form)
+          {
+            if(form.firstName.value == "") {
+              alert("Error: first name cannot be blank!");
+              form.firstName.focus();
+              return false;
+            }if(form.lastName.value == "") {
+              alert("Error: last name cannot be blank!");
+              form.lastName.focus();
+              return false;
+            }
+            if(form.email.value == "") {
+              alert("Error: email cannot be blank!");
+              form.email.focus();
+              return false;
+            }
+            /*
+            Email id validation format
+            Uppercase (A-Z) and lowercase (a-z) English letters.
+            Digits (0-9).
+            Characters ! # $ % & ' * + - / = ? ^ _ ` { | } ~
+            Character . ( period, dot or fullstop) provided that it is not the first or last character and it will not come one after the other.
+            */
+            re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;//email format
+            if(!re.test(form.email.value)) {
+              alert("Error: Email provided is invalid");
+              form.email.focus();
+              return false;
+            }
+            if(form.password.value != "" && form.password.value == form.password2.value) {
+              if(!checkPassword(form.password.value)) {
+                alert("The password you have entered is not strong enough! Try again with different password that contain at least one number, one lowercase and one uppercase letter, at least 6 characters are letters, numbers or the underscores");
+                form.password.focus();
+                return false;
+              }
+            } else {
+              alert("Error: Please check that you've entered and confirmed your password!");
+              form.password.focus();
+              return false;
+            }
+            return true;
+          }
+
+        </script>
     </head>
     <body class="container">
         <div class="page-header">
@@ -21,7 +75,7 @@
 
         <div class="container row">
             <div class="jumbotron col-sm-4 pull-center">
-                <form action="/signup" method="post">
+                <form action="/signup" onsubmit="return checkForm(this)" method="post">
                     <div>
                         <label>First Name:</label>
                         <input type="text" name="firstName"/>
@@ -33,16 +87,20 @@
                     <div>
                         <label>Email:</label>
                         <input type="text" name="email"/>
-                    </div>    
+                    </div>
                     <div>
                         <label>Password:</label>
                         <input type="password" name="password"/>
                     </div>
                     <div>
+                        <label>Confirm Password:</label>
+                        <input type="password" name="password2"/>
+                    </div>
+                    <div>
                         <input class="btn btn-primary" type="submit" value="Sign Up"/>
                     </div>
-                </form>                  
-            </div>          
+                </form>
+            </div>
         </div>
     </body>
 </html>
