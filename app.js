@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var morgan = require('morgan');
 var User = require('./models/user');
+var Manager = require('./models/manager');
 
 // invoke an instance of express application.
 var app = express();
@@ -70,19 +71,37 @@ app.route('/signup')
         res.sendFile(__dirname + '/public/signup.html');
     })
     .post((req, res) => {
-        User.create({            
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password
-        })
-        .then(user => {
-            req.session.user = user.dataValues;
-            res.redirect('/dashboard');
-        })
-        .catch(error => {
-            res.redirect('/signup');
-        });
+    	var type = req.body.type;
+
+    	if(type == 'user') {
+			User.create({            
+            	firstName: req.body.firstName,
+            	lastName: req.body.lastName,
+            	email: req.body.email,
+            	password: req.body.password
+        	})
+        	.then(user => {
+            	req.session.user = user.dataValues;
+            	res.redirect('/dashboard');
+        	})
+        	.catch(error => {
+            	res.redirect('/signup');
+        	});
+        } else if(type == 'manager') {
+        	Manager.create({            
+            	firstName: req.body.firstName,
+            	lastName: req.body.lastName,
+            	email: req.body.email,
+            	password: req.body.password
+        	})
+        	.then(manager => {
+            	req.session.manager = manager.dataValues;
+            	res.redirect('/dashboard');
+        	})
+        	.catch(error => {
+            	res.redirect('/signup');
+        	});
+        }
     });
 
 
@@ -93,18 +112,32 @@ app.route('/login')
     })
     .post((req, res) => {
         var username = req.body.email,
-            password = req.body.password;
+            password = req.body.password,
+            type = req.body.type;
 
-        User.findOne({ where: { email: username } }).then(function (user) {
-            if (!user) {
-                res.redirect('/signup');
-            } else if (!user.validPassword(password)) {
-                res.redirect('/login');
-            } else {
-                req.session.user = user.dataValues;
-                res.redirect('/dashboard');
-            }
-        });
+        if(type == 'user') {
+        	User.findOne({ where: { email: username } }).then(function (user) {
+            	if (!user) {
+                	res.redirect('/signup');
+            	} else if (!user.validPassword(password)) {
+                	res.redirect('/login');
+            	} else {
+                	req.session.user = user.dataValues;
+                	res.redirect('/dashboard');
+            	}
+        	});
+        } else if(type == 'manager') {
+        	Manager.findOne({ where: { email: username } }).then(function (manager) {
+            	if (!manager) {
+                	res.redirect('/signup');
+            	} else if (!manager.validPassword(password)) {
+                	res.redirect('/login');
+            	} else {
+                	req.session.manager = manager.dataValues;
+                	res.redirect('/dashboard');
+                }
+            });
+        }
     });
 
 
