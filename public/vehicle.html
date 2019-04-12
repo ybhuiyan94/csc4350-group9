@@ -1,0 +1,123 @@
+<html>
+    <head>
+    
+        <title>Profile</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Vehicle Information</h1>
+        </div>
+<nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container row">
+<h3>Vehicle</h3>
+       <div class="container row">
+            <div class="jumbotron col-sm-4 pull-center">
+                <form action="/signup" method="post">
+           <dt>License Plate</dt>	
+                <dd>	
+                     <input type ="text" id="license_no" name="license_no" value="" />	
+                    <span id="err_cc_no" class="jserror"></span>	
+                </dd>
+    <dt>Model</dt>	
+                <dd>	
+                     <input type ="text" id="model_name" name="model_name" value="" />	
+                    <span id="err_cc_no" class="jserror"></span>	
+                </dd>
+<dt>Make</dt>	
+                <dd>	
+                     <input type ="text" id="make_name" name="make_name" value="" />	
+                    <span id="err_cc_no" class="jserror"></span>	
+                </dd>
+<dt>Color</dt>	
+                <dd>	
+                     <input type ="text" id="color_name" name="color_name" value="" />	
+                    <span id="err_cc_no" class="jserror"></span>	
+                </dd>
+              <dt>State</dt>
+              <dd>
+              <table cellpadding="0" cellspacing="0">
+               <tr>
+                  <td><select id="state" name="state">
+                      <option value="">Select a State</option>
+                      <option value="1" selected="selected">AL</option> 
+                      <option value="2">AK</option>
+                      <option value="3">AZ</option>
+                      <option value="4">AR</option>
+                      <option value="5">CA</option>
+                      <option value="6">CO</option>
+                      <option value="7">CT</option>
+                      <option value="8">DE</option>
+                      <option value="9">FL</option>
+                      <option value="10">GA</option>
+                      <option value="11">HI</option>
+                      <option value="12">ID</option> 
+                      <option value="13">IL</option>
+                      <option value="14">IN</option>
+                      <option value="15">IA</option>
+                      <option value="16">KS</option>
+		      <option value="17">KY</option>
+		      <option value="18">LA</option>
+                      <option value="19">ME</option>
+                      <option value="20">MD</option>
+                      <option value="21">MA</option>
+                      <option value="22">MI</option>
+                      <option value="23">MN</option>
+                      <option value="24">MS</option>
+                      <option value="25">MO</option>
+                      <option value="26">MT</option>
+                      <option value="27">NE</option>
+                      <option value="28">NV</option>
+                      <option value="29">NH</option>
+                      <option value="30">NJ</option>
+                      <option value="31">NM</option>
+                      <option value="32">NY</option>
+                      <option value="33">NC</option>
+                      <option value="34">ND</option>
+                      <option value="35">OH</option>
+                      <option value="36">OK</option>
+                      <option value="37">OR</option>
+                      <option value="38">PA</option>
+                      <option value="39">RI</option>
+                      <option value="40">SC</option>
+                      <option value="41">SD</option> 
+                      <option value="42">TN</option>
+                      <option value="43">TX</option>
+                      <option value="44">UT</option>
+                      <option value="45">VT</option>
+                      <option value="46">VA</option>
+                      <option value="47">WA</option>
+                      <option value="48">WV</option>
+                      <option value="49">QI</option>
+                      <option value="50">WY</option>
+                    </select>                         	
+                        </td>                     	
+                    </tr>                 	
+                </table>             	
+            </dd>
+ 
+                 <div>
+  </div>
+                </form>
+
+            </div>
+        </div>       
+                    
+        </div>
+   </body>
+</html>
