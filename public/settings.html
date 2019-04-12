@@ -1,8 +1,10 @@
 <html>
     <head>
+    
         <title>Profile</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    </head>
+    
+</head>
     <body class="container">
         <div class="page-header">
             <h1>Settings</h1>
@@ -47,7 +49,7 @@
                         <input type="password" name="password"/>
                     </div> -->
                     <div>
-                        <input class="btn btn-primary" type="submit" value="Update Profile"/>
+                      
                     </div>
                 </form>
             </div>
@@ -55,9 +57,12 @@
 
         <div class="container row">
            <h1>Vehicles</h1>
-            <dt>License Plate</dt>	
+       <div class="container row">
+            <div class="jumbotron col-sm-4 pull-center">
+                <form action="/signup" method="post">
+           <dt>License Plate</dt>	
                 <dd>	
-                     <input type ="text" id="license_no" size=6 name="license_no" value="" />	
+                     <input type ="text" id="license_no" name="license_no" value="" />	
                     <span id="err_cc_no" class="jserror"></span>	
                 </dd>
     <dt>Model</dt>	
@@ -65,7 +70,7 @@
                      <input type ="text" id="model_name" name="model_name" value="" />	
                     <span id="err_cc_no" class="jserror"></span>	
                 </dd>
-<dt>Make</dt>
+<dt>Make</dt>	
                 <dd>	
                      <input type ="text" id="make_name" name="make_name" value="" />	
                     <span id="err_cc_no" class="jserror"></span>	
@@ -136,13 +141,23 @@
                     </tr>                 	
                 </table>             	
             </dd>
+ 
+                 <div>
+                      
+                    </div>
+                </form>
+            </div>
+        </div>       
+                      
         </div>
 
-        <div class="container row">
+       
            <h1>Payment Methods</h1>
-                <h2>	
-                    <input type=radio name=formOfPayment value=CreditCard />	
-                    Pay by Credit Card </h2>	
+            <div class="container row">
+            <div class="jumbotron col-sm-4 pull-center">
+                <form action="/signup" method="post">
+
+             
                 <dt>Credit Card Number</dt>	
                 <dd>	
                      <input type ="text" id="cc_no" name="cc_no" value="1111111111111111" />	
@@ -153,7 +168,7 @@
                     <table cellpadding="0" cellspacing="0">	
                         <tr>	
                             <td><select id="cc_exp_mm" name="cc_exp_mm">	
-                                <option value="">Month</option>	
+                                <option value="">Select Month</option>	
                                 <option value="1" selected="selected">January</option>                                       	
                                 <option value="2">February</option>                              	
                                 <option value="3">March</option>                           	
@@ -196,10 +211,17 @@
                 </dd>	
                 </form>	
                 </dl>	
-           </div>	
-        <div>	
+           </div>
+	
+        <div>
+
+
+
 
      </div>
         </div>
+
+<input class="btn btn-primary" type="submit" value="Update Profile"/>	
+
     </body>
 </html>
