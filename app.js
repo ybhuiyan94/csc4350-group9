@@ -96,7 +96,7 @@ app.route('/signup')
         	})
         	.then(manager => {
             	req.session.manager = manager.dataValues;
-            	res.redirect('/dashboard');
+            	res.redirect('/managerSettings');
         	})
         	.catch(error => {
             	res.redirect('/signup');
@@ -134,7 +134,7 @@ app.route('/login')
                 	res.redirect('/login');
             	} else {
                 	req.session.manager = manager.dataValues;
-                	res.redirect('/dashboard');
+                	res.redirect('/managerSettings');
                 }
             });
         }
@@ -165,6 +165,15 @@ app.get('/logout', (req, res) => {
 app.get('/settings', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.sendFile(__dirname + '/public/settings.html');
+    } else {
+        res.redirect('/login');
+    }
+});
+
+// route for managerSettings
+app.get('/managerSettings', (req, res) => {
+    if (req.session.manager && req.cookies.user_sid) {
+        res.sendFile(__dirname + '/public/managerSettings.html');
     } else {
         res.redirect('/login');
     }
