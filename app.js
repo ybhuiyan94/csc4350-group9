@@ -11,6 +11,10 @@ var Manager = require('./models/manager');
 // invoke an instance of express application.
 var app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/folder_name'));
+
 // set our application port
 //app.set('port', 9000);
 
@@ -68,7 +72,7 @@ app.get('/', sessionChecker, (req, res) => {
 // route for user signup
 app.route('/signup')
     .get(sessionChecker, (req, res) => {
-        res.sendFile(__dirname + '/public/signup.html');
+        res.render('signup',{title:"Signup"});
     })
     .post((req, res) => {
     	var type = req.body.type;
@@ -108,7 +112,7 @@ app.route('/signup')
 // route for user Login
 app.route('/login')
     .get(sessionChecker, (req, res) => {
-        res.sendFile(__dirname + '/public/login.html');
+        res.render('login',{title:"Login"});
     })
     .post((req, res) => {
         var username = req.body.email,
@@ -144,7 +148,7 @@ app.route('/login')
 // route for user's dashboard
 app.get('/dashboard', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
-        res.sendFile(__dirname + '/public/dashboard.html');
+        res.render('dashboard',{title:"Dashboard"});
     } else {
         res.redirect('/login');
     }
@@ -164,7 +168,11 @@ app.get('/logout', (req, res) => {
 // route for Settings
 app.get('/settings', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
-        res.sendFile(__dirname + '/public/settings.html');
+
+    	var firstName = req.session.user.firstName;
+    	var lastName = req.session.user.lastName;
+        res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName});
+        // document.getElementById("firstName").value = "Johnny Bravo";
     } else {
         res.redirect('/login');
     }
@@ -173,7 +181,7 @@ app.get('/settings', (req, res) => {
 // route for managerSettings
 app.get('/managerSettings', (req, res) => {
     if (req.session.manager && req.cookies.user_sid) {
-        res.sendFile(__dirname + '/public/managerSettings.html');
+        res.render('managerSettings',{title:"Manager Settings"});
     } else {
         res.redirect('/login');
     }
