@@ -9,7 +9,7 @@ var User = require('./models/user');
 var Manager = require('./models/manager');
 var Vehicle = require('./models/vehicle');
 var PaymentMethod = require('./models/paymentMethod');
-
+var ParkingLot = require('./models/parkinglot');
 
 // invoke an instance of express application.
 var app = express();
