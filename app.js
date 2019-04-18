@@ -7,6 +7,9 @@ var session = require('express-session');
 var morgan = require('morgan');
 var User = require('./models/user');
 var Manager = require('./models/manager');
+var Vehicle = require('./models/vehicle');
+var PaymentMethod = require('./models/paymentMethod');
+
 
 // invoke an instance of express application.
 var app = express();
