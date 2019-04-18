@@ -11,6 +11,8 @@ var Vehicle = require('./models/vehicle');
 var PaymentMethod = require('./models/paymentMethod');
 var ParkingLot = require('./models/parkinglot');
 
+
+
 // invoke an instance of express application.
 var app = express();
 
@@ -169,17 +171,46 @@ app.get('/logout', (req, res) => {
 });
 
 // route for Settings
-app.get('/settings', (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
-
+app.route('/settings')
+    .get((req, res) => {
+        if (req.session.user && req.cookies.user_sid) {
     	var firstName = req.session.user.firstName;
     	var lastName = req.session.user.lastName;
+    	
         res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName});
-        // document.getElementById("firstName").value = "Johnny Bravo";
     } else {
+    	console.log("yolo2")
         res.redirect('/login');
     }
+    
+}).post((req, res) => {
+		var firstName =req.body.firstName;
+    	var lastName = req.body.lastName;
+
+    	console.log(firstName);
+    	console.log(lastName);
+    	console.log(req.session.user.id);
+
+		User.update(
+			{
+
+		 	firstName: firstName,
+		 	lastName: lastName
+
+  			 },
+  			{ where: { id: req.session.user.id } }
+		)
+  	.then(result =>
+    	req.session.user.firstName = firstName
+  	)
+  	.error(err =>
+    	handleError(err)
+  	)
+  	res.redirect('/settings');
 });
+
+
+
 
 // route for managerSettings
 app.get('/managerSettings', (req, res) => {
