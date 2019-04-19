@@ -11,6 +11,7 @@ var Vehicle = require('./models/vehicle');
 var PaymentMethod = require('./models/paymentMethod');
 var ParkingLot = require('./models/parkinglot');
 var Own = require('./models/own');
+var Pay = require('./models/pay');
 
 
 
@@ -225,6 +226,38 @@ app.route('/addVehicle')
             	Own.create({
             		userID: req.session.user.id,
             		vehicleID: vehicle.id,
+            		active: true
+            	})
+        	})
+        	.catch(error => {
+            	res.redirect('/signup');
+        	});
+   		res.redirect('/settings');
+});
+
+// route for addPayment
+app.route('/addPayment')
+    .get((req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+        res.render('addPayment',{title:"Manager Settings"});
+    } else {
+        res.redirect('/login');
+    }
+}).post((req, res) => {
+	console.log(req.body.cardNumber)
+	console.log(req.body.cvv)
+	console.log(req.body.expirationMonth)
+	console.log(req.body.expirationYear)
+   		PaymentMethod.create({            
+        	cardNumber: req.body.cardNumber,
+   			cvv: req.body.cvv,
+   			expirationMonth: req.body.expirationMonth,
+   			expirationYear: req.body.expirationYear
+        		})
+        	.then(paymentMethod => {
+            	Pay.create({
+            		userID: req.session.user.id,
+            		paymentID: paymentMethod.id,
             		active: true
             	})
         	})

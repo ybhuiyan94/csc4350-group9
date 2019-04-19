@@ -4,30 +4,25 @@ var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://Group9:Akshita1234@aagn29ugs86czq.c31f2v7z8hc6.us-west-2.rds.amazonaws.com:5432/postgres');
 
 // setup User model and its fields.
-var PaymentMethod = sequelize.define('paymentMethod', {
-    cardNumber: {
-        type: Sequelize.STRING,
-        unique: true,
+var Pay = sequelize.define('pay', {
+    userID: {
+        type: Sequelize.INTEGER,
         allowNull: false
     },
-    cvv: {
-        type: Sequelize.STRING,
+    paymentID: {
+        type: Sequelize.INTEGER,
         allowNull: false
     },
-    expirationMonth: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    expirationYear: {
-        type: Sequelize.STRING,
+    active: {
+        type: Sequelize.BOOLEAN,
         allowNull: false
     }
 });
 
 // create all the defined tables in the specified database.
 // sequelize.sync()
-//     .then(() => console.log('paymentMethods table has been successfully created, if one doesn\'t exist'))
+//     .then(() => console.log('pays table has been successfully created, if one doesn\'t exist'))
 //     .catch(error => console.log('This error occured', error));
 
 // export Vehicle model for use in other files.
-module.exports = PaymentMethod;
+module.exports = Pay;

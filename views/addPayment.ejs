@@ -1,0 +1,60 @@
+<html>
+    <head>
+    
+        <title>Add Payment Method</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+    <body class="container">
+        <div class="page-header">
+            <h3>Payment Methods</h3>
+            <div class="container row">
+            <div class="jumbotron col-sm-4 pull-center">
+                <form action="/addPayment" method="post">
+
+             
+                <dt>Credit Card Number or Debit Card</dt> 
+                <dd>  
+                     <input type ="text" id="cc_no" name="cardNumber"/>  
+                    <span id="err_cc_no" class="jserror"></span>  
+                </dd> 
+                <dt>Expiration Date</dt>  
+                <dd>  
+                    <table cellpadding="0" cellspacing="0"> 
+                        <tr>  
+                            <td><select id="cc_exp_mm" name="expirationMonth">  
+                                <option value="">Select Month</option>  
+                                <option value="January">January</option>                                        
+                                <option value="February">February</option>                               
+                                <option value="March">March</option>                            
+                                <option value="April">April</option>                            
+                                <option value="May">May</option>                              
+                                <option value="June">June</option>                             
+                                <option value="July">July</option>                             
+                                <option value="August">August</option>                               
+                                <option value="September">September</option>                      
+                                <option value="October">October</option>                               
+                                <option value="November">November</option>                              
+                                <option value="December">December</option>  
+                                </select></td>
+                                <td width="20"&nbsp;  
+                                  </td> 
+                                <td> 
+                                <input id="expirationYear" type="text" size="5" name="expirationYear"/>                       
+                    </tr>                   
+                </table>              
+            </dd> 
+                <dt>CVV</dt>  
+                <dd>  
+                    <input id="cvv" type="text" size="5" name="cvv"/> 
+                </dd> 
+                <input class="btn btn-primary" type="submit" value="Add Payment Method"/>
+               </form>
+                </dl> 
+           </div>
+        </div>
+
+
+
+    </body>
+</html>
