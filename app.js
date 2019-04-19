@@ -223,11 +223,18 @@ app.route('/addVehicle')
    			state: req.body.state
         		})
         	.then(vehicle => {
-            	Own.create({
-            		userID: req.session.user.id,
-            		vehicleID: vehicle.id,
-            		active: true
-            	})
+        		Own.update(
+					{ active: false },
+  					{ where: { userID: req.session.user.id } }
+				).then( owns => {
+					Own.create({
+            			userID: req.session.user.id,
+            			vehicleID: vehicle.id,
+            			active: true
+            		})
+				}).error(err =>
+    				handleError(err)
+  				)
         	})
         	.catch(error => {
             	res.redirect('/signup');
@@ -255,11 +262,18 @@ app.route('/addPayment')
    			expirationYear: req.body.expirationYear
         		})
         	.then(paymentMethod => {
-            	Pay.create({
-            		userID: req.session.user.id,
-            		paymentID: paymentMethod.id,
-            		active: true
-            	})
+        		Pay.update(
+					{ active: false },
+  					{ where: { userID: req.session.user.id } }
+				).then( pays => {
+					Pay.create({
+            			userID: req.session.user.id,
+            			paymentID: paymentMethod.id,
+            			active: true
+            		})
+				}).error(err =>
+    				handleError(err)
+  				)
         	})
         	.catch(error => {
             	res.redirect('/signup');
