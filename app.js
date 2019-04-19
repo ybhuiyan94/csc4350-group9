@@ -10,6 +10,7 @@ var Manager = require('./models/manager');
 var Vehicle = require('./models/vehicle');
 var PaymentMethod = require('./models/paymentMethod');
 var ParkingLot = require('./models/parkinglot');
+var Own = require('./models/own');
 
 
 
@@ -179,17 +180,12 @@ app.route('/settings')
     	
         res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName});
     } else {
-    	console.log("yolo2")
         res.redirect('/login');
     }
     
 }).post((req, res) => {
 		var firstName =req.body.firstName;
     	var lastName = req.body.lastName;
-
-    	console.log(firstName);
-    	console.log(lastName);
-    	console.log(req.session.user.id);
 
 		User.update(
 			{
@@ -207,6 +203,35 @@ app.route('/settings')
     	handleError(err)
   	)
   	res.redirect('/settings');
+});
+
+// route for addVehicle
+app.route('/addVehicle')
+    .get((req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+        res.render('addVehicle',{title:"Manager Settings"});
+    } else {
+        res.redirect('/login');
+    }
+}).post((req, res) => {
+   		Vehicle.create({            
+        	plateNumber: req.body.plateNumber,
+   			make: req.body.make,
+   			model: req.body.model,
+   			color: req.body.color,
+   			state: req.body.state
+        		})
+        	.then(vehicle => {
+            	Own.create({
+            		userID: req.session.user.id,
+            		vehicleID: vehicle.id,
+            		active: true
+            	})
+        	})
+        	.catch(error => {
+            	res.redirect('/signup');
+        	});
+   		res.redirect('/settings');
 });
 
 

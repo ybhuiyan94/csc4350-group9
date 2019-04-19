@@ -1,0 +1,146 @@
+<html>
+    <head>
+    
+        <title>Add Vehicle</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Add Vehicle</h1>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+       
+
+        <div class="container row">
+           <h3>Vehicle</h3>
+       <div class="container row">
+            <div class="jumbotron col-sm-4 pull-center">
+                <form action="/addVehicle" method="post">
+           <dt>License Plate</dt>	
+                <dd>	
+                     <input type ="text" id="license_no" name="plateNumber" value="" />	
+                    <span id="err_cc_no" class="jserror"></span>	
+                </dd>
+                <dt>Make</dt> 
+                <dd>  
+                     <input type ="text" id="make_name" name="make" value="" />  
+                    <span id="err_cc_no" class="jserror"></span>  
+                </dd>
+                <dt>Model</dt>	
+                <dd>	
+                     <input type ="text" id="model_name" name="model" value="" />	
+                    <span id="err_cc_no" class="jserror"></span>	
+                </dd>
+
+<dt>Color</dt>	
+                <dd>	
+                     <input type ="text" id="color_name" name="color" value="" />	
+                    <span id="err_cc_no" class="jserror"></span>	
+                </dd>
+              <dt>State</dt>
+              <dd>
+              <table cellpadding="0" cellspacing="0">
+               <tr>
+                  <td><select id="state" name="state">
+                      <option value="">Select a State</option>
+                      <option value="AL" selected="selected">AL</option> 
+                      <option value="AK">AK</option>
+                      <option value="AZ">AZ</option>
+                      <option value="AR">AR</option>
+                      <option value="CA">CA</option>
+                      <option value="CO">CO</option>
+                      <option value="CT">CT</option>
+                      <option value="DE">DE</option>
+                      <option value="FL">FL</option>
+                      <option value="GA">GA</option>
+                      <option value="HI">HI</option>
+                      <option value="ID">ID</option> 
+                      <option value="IL">IL</option>
+                      <option value="IN">IN</option>
+                      <option value="IA">IA</option>
+                      <option value="KS">KS</option>
+		                  <option value="KY">KY</option>
+		                  <option value="LA">LA</option>
+                      <option value="ME">ME</option>
+                      <option value="MD">MD</option>
+                      <option value="MA">MA</option>
+                      <option value="MI">MI</option>
+                      <option value="MN">MN</option>
+                      <option value="MS">MS</option>
+                      <option value="MO">MO</option>
+                      <option value="MT">MT</option>
+                      <option value="NE">NE</option>
+                      <option value="NV">NV</option>
+                      <option value="NH">NH</option>
+                      <option value="NJ">NJ</option>
+                      <option value="NM">NM</option>
+                      <option value="NY">NY</option>
+                      <option value="NC">NC</option>
+                      <option value="ND">ND</option>
+                      <option value="OH">OH</option>
+                      <option value="OK">OK</option>
+                      <option value="OR">OR</option>
+                      <option value="PA">PA</option>
+                      <option value="RI">RI</option>
+                      <option value="SC">SC</option>
+                      <option value="SD">SD</option> 
+                      <option value="TN">TN</option>
+                      <option value="TX">TX</option>
+                      <option value="UT">UT</option>
+                      <option value="VT">VT</option>
+                      <option value="VA">VA</option>
+                      <option value="WA">WA</option>
+                      <option value="WV">WV</option>
+                      <option value="WI">WI</option>
+                      <option value="WY">WY</option>
+                    </select>                         	
+                        </td>                     	
+                    </tr>                 	
+                </table>             	
+            </dd>
+ 
+                 <div>
+
+                  <style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+</style>  
+
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Add Vehicle"/>
+                </form>
+
+            </div>
+        </div>                  
+        </div>
+
+
+
+    </body>
+</html>
