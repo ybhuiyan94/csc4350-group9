@@ -178,11 +178,40 @@ app.route('/settings')
         if (req.session.user && req.cookies.user_sid) {
     	var firstName = req.session.user.firstName;
     	var lastName = req.session.user.lastName;
+    	var make = [];
+    	var model = [];
+    	var color = [];
+    	var plateNumber = [];
     	
-        res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName});
+        Own.hasMany(Vehicle, {foreignKey: 'id', sourceKey: "vehicleID"})
+		Vehicle.belongsTo(Own, {foreignKey: 'id', sourceKey: 'vehicleID'})
+        Own.findAll({
+        	where: {userID: req.session.user.id},
+  			include: [{
+    			model: Vehicle,
+    			required: true
+   			}],
+   			raw: true
+		}).then(vehicles => {
+ 			 console.log(Object.keys(vehicles[0]))	// id of second vehicle
+ 			 console.log(Object.keys(vehicles).length) // number of vehicles
+ 			 var i;
+ 			 for(i=0; i<Object.keys(vehicles).length; i++) {
+ 			 	make.push(vehicles[i]['vehicles.make'])
+ 			 	model.push(vehicles[i]['vehicles.model'])
+ 			 	color.push(vehicles[i]['vehicles.color'])
+ 			 	plateNumber.push(vehicles[i]['vehicles.plateNumber'])
+ 			 }
+ 			 res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName,
+		make: make, model: model, color: color, plateNumber: plateNumber})
+		});
+
     } else {
         res.redirect('/login');
-    }
+    };
+    console.log("shrodo");
+    
+
     
 }).post((req, res) => {
 		var firstName =req.body.firstName;

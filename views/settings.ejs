@@ -59,11 +59,18 @@
 
          
 
-        <div class="container row">
+        <div class="container row" width="300px">
            <h3>Vehicle</h3>
        <div class="container row">
             <div class="jumbotron col-sm-4 pull-center">
-                
+                <ul style="list-style: none;">
+                    <%for (var i in make){%>
+                      <li><%=make[i]%>    <%=model[i]%>    <%=color[i]%>    <%=plateNumber[i]%></li> 
+                      <li> <input class="btn btn-primary" type="submit" value="Update"/>
+                      <input class="btn btn-primary" type="submit" value="Delete"/>
+                      </li>   
+                     <%}%>
+                </ul>
 
             </div>
         </div>       
@@ -80,6 +87,7 @@
         </div>
 
         <a href="/addPayment"> Add Payment Method </a>
+
 
 
 
