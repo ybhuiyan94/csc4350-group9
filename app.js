@@ -193,15 +193,17 @@ app.route('/settings')
    			}],
    			raw: true
 		}).then(vehicles => {
- 			 console.log(Object.keys(vehicles[0]))	// id of second vehicle
- 			 console.log(Object.keys(vehicles).length) // number of vehicles
- 			 var i;
- 			 for(i=0; i<Object.keys(vehicles).length; i++) {
- 			 	make.push(vehicles[i]['vehicles.make'])
- 			 	model.push(vehicles[i]['vehicles.model'])
- 			 	color.push(vehicles[i]['vehicles.color'])
- 			 	plateNumber.push(vehicles[i]['vehicles.plateNumber'])
- 			 }
+			if(vehicles !== null) {
+ 			 	// console.log(Object.keys(vehicles[0]))	// id of second vehicle
+ 			 	// console.log(Object.keys(vehicles).length) // number of vehicles
+ 			 	var i;
+ 			 	for(i=0; i<Object.keys(vehicles).length; i++) {
+ 			 		make.push(vehicles[i]['vehicles.make'])
+ 			 		model.push(vehicles[i]['vehicles.model'])
+ 			 		color.push(vehicles[i]['vehicles.color'])
+ 			 		plateNumber.push(vehicles[i]['vehicles.plateNumber'])
+ 			 	}
+ 			}
  			 res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName,
 		make: make, model: model, color: color, plateNumber: plateNumber})
 		});
@@ -261,6 +263,7 @@ app.route('/addVehicle')
             			vehicleID: vehicle.id,
             			active: true
             		})
+            		res.redirect('/settings');
 				}).error(err =>
     				handleError(err)
   				)
@@ -268,7 +271,7 @@ app.route('/addVehicle')
         	.catch(error => {
             	res.redirect('/signup');
         	});
-   		res.redirect('/settings');
+   		
 });
 
 // route for addPayment
