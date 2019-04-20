@@ -1,0 +1,221 @@
+<html>
+    <head>
+    
+        <title>Profile</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+    <body class="container">
+        <div class="page-header">
+            <h1>Reservation Information </h1>
+        </div>
+<nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container row">
+ <h3>Reservation</h3>
+            <div class="container row">
+            <div class="jumbotron col-sm-4 pull-center">
+                <form action="/signup" method="post">
+	
+         <form id="parking">
+  <label>
+    Entrance Date <br/>
+    <input type="date" name="start" value="Today"/>
+  </label>
+ 
+  <label>
+    Exist Date <br/>
+    <input type="date" name="end" data-value="7" value="After one week"/>
+  </label>
+</form>
+
+             
+             <dt>Entrance Time and Exist Time</dt>	
+                <dd>	
+                    <table cellpadding="0" cellspacing="0">	
+                        <tr>	
+                            <td><select id="entr_loc_time" name="entr_loc_time">	
+                                <option value="">Select Entrance Time</option>	
+                                <option value="12:00 AM" selected="selected">12:00 AM</option>                                       	
+                               <option value="12:30 AM">12:30 AM</option>                            	
+                                <option value="1:00 AM">1:00 AM</option>                            	
+                                <option value=:1:30 AM">1:30 AM</option>                           	
+                                <option value="2:00 AM">2:00 AM</option>                             	
+                                <option value="2:30 AM">2:30 AM</option>                     	
+                                <option value="3:00 AM">3:00 AM</option>                              	
+                                <option value="3:30 AM">3:30 AM</option>                             	
+                                <option value="4:00 AM">4:00 AM</option>	
+                                <option value="4:30 AM">4:30 AM</option>                             	
+                                <option value="5:00 AM">5:00 AM</option>	
+                                <option value="5:30 AM">5:30 AM</option>	
+                                <option value="6:00 AM">6:00 AM</option>	
+                                <option value="6:30 AM">6:30 AM</option>	
+                                <option value="7:00 AM">7:00 AM</option>
+                               <option value="7:00 AM">7:00 AM</option>	
+                               <option value="7:30 AM">7:30 AM</option>
+                              <option value="8:00 AM">8:00 AM</option>
+                              <option value="8:30 AM">8:30 AM</option>
+                             <option value="9:00 AM">9:00 AM</option>
+                             <option value="9:30 AM">9:30 AM</option>
+                             <option value="10:00 AM">10:00 AM</option>
+                             <option value="10:30 AM">10:30 AM</option>
+                             <option value="11:00 AM">11:00 AM</option>
+                             <option value="11:30 AM">11:30 AM</option>
+                             <option value="12:00 PM">12:00 PM</option>
+                              <option value="12:30 PM">12:30 PM</option>
+                              <option value="1:00 PM">1:00 PM</option>
+                              <option value="1:30 PM">1:30 PM</option>
+                                </select></td>	
+                           
+                                <td>	
+                                  	
+                                 <td width="20"&nbsp;
+                                  <dt>To</dt>	      
+                                <td><select id="exist_loc_time" name:"exist_loc_time">	
+	                        <option value="">Select Entrance Time</option>	
+                                <option value="12:00 AM" selected="selected">12:00 AM</option>                                 	
+                                <option value="12:30 AM">12:30 AM</option>                            	
+                                <option value="1:00 AM">1:00 AM</option>                            	
+                                <option value=:1:30 AM">1:30 AM</option>                           	
+                                <option value="2:00 AM">2:00 AM</option>                             	
+                                <option value="2:30 AM">2:30 AM</option>                     	
+                                <option value="3:00 AM">3:00 AM</option>                              	
+                                <option value="3:30 AM">3:30 AM</option>                             	
+                                <option value="4:00 AM">4:00 AM</option>	
+                                <option value="4:30 AM">4:30 AM</option>                             	
+                                <option value="5:00 AM">5:00 AM</option>	
+                                <option value="5:30 AM">5:30 AM</option>	
+                                <option value="6:00 AM">6:00 AM</option>	
+                                <option value="6:30 AM">6:30 AM</option>	
+                                <option value="7:00 AM">7:00 AM</option>
+                               <option value="7:00 AM">7:00 AM</option>	
+                               <option value="7:30 AM">7:30 AM</option>
+                              <option value="8:00 AM">8:00 AM</option>
+                              <option value="8:30 AM">8:30 AM</option>
+                             <option value="9:00 AM">9:00 AM</option>
+                             <option value="9:30 AM">9:30 AM</option>
+                             <option value="10:00 AM">10:00 AM</option>
+                             <option value="10:30 AM">10:30 AM</option>
+                             <option value="11:00 AM">11:00 AM</option>
+                             <option value="11:30 AM">11:30 AM</option>
+                             <option value="12:00 PM">12:00 PM</option>
+                             <option value="12:30 PM">12:30 PM</option>
+                             <option value="1:00 PM">1:00 PM</option>
+                             <option value="1:30 PM">1:30 PM</option>
+                             <option value="2:00 PM">2:00 PM</option>
+                             <option value="2:30 PM">2:30 PM</option>
+                             <option value="3:00 PM">3:00 PM</option>
+                             <option value="3:30 PM">3:30 PM</option>
+                             <option value="4:00 PM">4:00 PM</option>
+                             <option value="4:30 PM">4:30 PM</option>
+                             <option value="5:00 PM">5:00 PM</option>
+                             <option value="5:30 PM">5:30 PM</option>
+                             <option value="6:00 PM">6:00 PM</option>
+                             <option value="6:30 PM">6:30 PM</option>
+                             <option value="7:00 PM">7:00 PM</option>
+                             <option value="7:30 PM">7:30 PM</option>
+                             <option value="8:00 PM">8:00 PM</option>
+                             <option value="8:30 PM">8:30 PM</option>
+                             <option value="9:00 PM">9:00 PM</option>
+                             <option value="9:30 PM">9:30 PM</option>
+                             <option value="10:00 PM">10:00 PM</option>
+                             <option value="10:30 PM">10:30 PM</option>
+                             <option value="11:00 PM">11:00 PM</option>
+                             <option value="11:30 PM">11:30 PM</option>
+
+
+                            </select>                         	
+                        </td>                     	
+                    </tr>                 	
+                </table>             	
+            </dd>
+       	
+                 <dt>Select a Location</dt>	
+                <dd>	
+                    <table cellpadding="0" cellspacing="0">	
+                        <tr>	
+                            <td>	
+                               <td width="20"&nbsp;
+                                       
+                                <td><select id="sel_location" name:"sel_location">	
+	                        <option value="">Select Location</option>	
+                                <option value="1 Park Avenue West Parking Lot" selected="selected">1 Park Avenue West Parking Lot</option>                                 	
+                                <option value="100 Edgewood Avenue Parking Garage">100 Edgewood Avenue Parking Garage</option>                            	
+                                <option value="100 Luckie Street Parking Garage">100 Luckie Street Parking Garage</option>                            	
+                                <option value="100 Ted Turner Drive Parking Lot">100 Ted Turner Drive Parking Lot</option>                           	
+                                <option value="101 Marietta Parking Garage">101 Marietta Parking Garage</option>                             	
+                                <option value="102 Cone Street Parking Garage">102 Cone Street Parking Garage</option>                     	
+                                <option value="103 Luckie Street Parking Lot">103 Luckie Street Parking Lot</option>                              	
+                                <option value="104 Marietta Street Parking Garage">104 Marietta Street Parking Garage</option>                             	
+                                <option value="106 Baker Street Parking Lot">106 Baker Street Parking Lot</option>	
+                                <option value="110 Ted Turner Drive Parking Lot">110 Ted Turner Drive Parking Lot</option>                             	
+                                <option value="112 Gilmer Street Parking Garage">112 Gilmer Street Parking Garage</option>	
+                                <option value="117 Peachtree Street Parking Lot">117 Peachtree Street Parking Lot</option>	
+                                <option value="119 Ted Turner Drive Parking Garage">119 Ted Turner Drive Parking Garage</option>	
+                                <option value="121 Linden Avenue Parking Lot">121 Linden Avenue Parking Lot</option>	
+                                <option value="123 Marietta Street Parking Garage">123 Marietta Street Parking Garage</option>
+                               <option value="126 Baker Street Parking Lot">126 Baker Street Parking Lot</option>	
+                               <option value="127 Andrew Young International Blvd. Parking Lot">127 Andrew Young International Blvd. Parking Lot</option>
+                              <option value="132 Luckie Street Parking Lot">132 Luckie Street Parking Lot</option>
+                              <option value="134 Forsyth Street Parking Lot">134 Forsyth Street Parking Lot</option>
+                             <option value="135 Auburn Avenue Parking Lot">135 Auburn Avenue Parking Lot</optio
+                             <option value="135 Forsyth Street Parking Lot">135 Forsyth Street Parking Lot</option>
+                             <option value="135 Memorial Drive Parking Lot">135 Memorial Drive Parking Lot</option>
+                             <option value="139 Auburn Avenue Parking Lot">139 Auburn Avenue Parking Lot</option>
+                             <option value="140 Edgewood Avenue Parking Lot">140 Edgewood Avenue Parking Lot</option>
+                             <option value="140 John Wesley Dobbs Avenue Parking Lot">140 John Wesley Dobbs Avenue Parking Lot</option>
+                             <option value="140 Spring Street Parking Lot">140 Spring Street Parking Lot</option>
+                             <option value="145 Luckie Street Parking Lot">145 Luckie Street Parking Lot</option>
+                             <option value="146 Northside Drive Parking Lot">146 Northside Drive Parking Lot</option>
+                             <option value="15 Lower Wall Street Parking Lot</">15 Lower Wall Street Parking Lot</</option>
+                             <option value="15 Peachtree Street Parking Garage (Five Points)">15 Peachtree Street Parking Garage (Five Points)</option>
+                             <option value="15 Wall Street Parking Lot">15 Wall Street Parking Lot</option>
+                             <option value="150 Carnegie Way Parking Garage">150 Carnegie Way Parking Garage</option>
+                             <option value="150 Forsyth Street Parking Lot">150 Forsyth Street Parking Lot</option>
+                             <option value="150 Peachtree Street Parking Lot">150 Peachtree Street Parking Lot</option>
+                             <option value="151 Peachtree Street Parking Lot">151 Peachtree Street Parking Lot</option>
+                             <option value="154 Ted Turner Drive Parking Lot">154 Ted Turner Drive Parking Lot</option>
+                             <option value="155 Centennial Olympic Park Drive Parking Lot</">155 Centennial Olympic Park Drive Parking Lot</</option>
+                             <option value="158 Peachtree Street Parking Lot">158 Peachtree Street Parking Lot</option>
+                             <option value="159 Peachtree Center Avenue Parking Lot">159 Peachtree Center Avenue Parking Lot</option>
+                             <option value="162 Forsyth Street Parking Lot">162 Forsyth Street Parking Lot</option> 
+                                <option value="162 Jesse Hill Jr. Drive Parking Garage">162 Jesse Hill Jr. Drive Parking Garage</option> 
+                                <option value="166 Carnegie Way Parking Lot">166 Carnegie Way Parking Lot</option> 
+                                <option value="169 Forsyth Street Parking Lot">169 Forsyth Street Parking Lot</option> 
+                                <option value="17 Courtland Street Parking Lot">17 Courtland Street Parking Lot</option> 
+                                <option value="171 Carnegie Way Parking Garage">171 Carnegie Way Parking Garage</option> 
+                                <option value="174 Peachtree Street Parking Lot">174 Peachtree Street Parking Lot</option> 
+                                <option value="175 Peachtree Street Parking Lot">175 Peachtree Street Parking Lot</option> 
+                                <option value="180 Pryor Street Parking Garage">180 Pryor Street Parking Garage</option> 
+                                <option value="183 Pryor Street Parking Lot">183 Pryor Street Parking Lot</option> 
+                                <option value="185 Peachtree Street Parking Lot">185 Peachtree Street Parking Lot</option>  
+
+
+                            </select>                         	
+                        </td>                     	
+                    </tr>                 	
+                </table>             	
+            </dd>	
+   
+               </form>
+                </dl>
+
+            </div>
+        </div>       
+                    
+        </div>
+   </body>
+</html>
