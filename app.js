@@ -13,6 +13,15 @@ var ParkingLot = require('./models/parkinglot');
 var Own = require('./models/own');
 var Pay = require('./models/pay');
 
+// ParkingLot.create({            
+// 			address: '265 Peachtree St',
+// 			totalSpaces: 600,
+// 			timeLimit: 12.0,
+// 			hourlyRate: 2.0,
+// 			latitude: 33.761426,
+// 			longitude: -84.386118
+// 		})
+
 
 
 // invoke an instance of express application.
@@ -155,7 +164,34 @@ app.route('/login')
 // route for user's dashboard
 app.get('/dashboard', (req, res) => {
 	if (req.session.user && req.cookies.user_sid) {
-		res.render('dashboard',{title:"Dashboard"});
+		var address = [],
+		totalSpaces = [],
+		timeLimit = [],
+		hourlyRate = [],
+		latitude = [],
+		longitude = [];
+
+		ParkingLot.findAll({
+			raw: true
+		}).then(lots => {
+			console.log(lots)
+			if(lots !== null) {
+ 			 				var i;
+ 			 				for(i=0; i<Object.keys(lots).length; i++) {
+ 			 					address.push(lots[i].address)
+ 			 					totalSpaces.push(lots[i].totalSpaces)
+ 			 					timeLimit.push(lots[i].timeLimit)
+ 			 					hourlyRate.push(lots[i].hourlyRate)
+ 			 					latitude.push(lots[i].latitude)
+ 			 					longitude.push(lots[i].longitude)
+ 			 				}
+ 			 			}
+ 			res.render('dashboard',{title:"Dashboard", address: address,
+ 				totalSpaces: totalSpaces, timeLimit: timeLimit, hourlyRate: hourlyRate,
+ 				latitude: latitude, longitude: longitude});
+		})
+		
+		
 	} else {
 		res.redirect('/login');
 	}
