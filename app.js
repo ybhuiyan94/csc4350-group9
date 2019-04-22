@@ -241,6 +241,7 @@ app.route('/settings')
  			 		model.push(vehicles[i]['vehicles.model'])
  			 		color.push(vehicles[i]['vehicles.color'])
  			 		plateNumber.push(vehicles[i]['vehicles.plateNumber'])
+ 			 	}
 
  			 		Pay.findAll({
  			 			where: {userID: req.session.user.id},
@@ -259,9 +260,11 @@ app.route('/settings')
  			 			res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName,
  			 				make: make, model: model, color: color, plateNumber: plateNumber, cardNumber: cardNumber})
  			 		});
- 			 	}
- 			 }
-
+ 			 	
+ 			 } else {
+ 			 res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName,
+ 			 				make: make, model: model, color: color, plateNumber: plateNumber, cardNumber: cardNumber})
+ 			}
  			});
 
 	} else {
