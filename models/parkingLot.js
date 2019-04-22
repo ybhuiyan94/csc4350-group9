@@ -22,6 +22,14 @@ var ParkingLot = sequelize.define('parkingLot', {
         type: Sequelize.FLOAT,
         allowNull: false
     },
+    timeOpen: {
+        type: Sequelize.TIME,
+        allowNull: false
+    },
+    timeClosed: {
+        type: Sequelize.TIME,
+        allowNull: false
+    },
     latitude: {
         type: Sequelize.DOUBLE,
         allowNull: false
