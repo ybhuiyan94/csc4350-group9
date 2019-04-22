@@ -256,16 +256,20 @@ app.route('/settings')
  			 					cardNumber.push(cards[i]['paymentMethods.cardNumber'].slice(-4))
  			 				}
  			 			}
- 					});
- 			 	}
- 			}
- 			res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName,
+ 			 			res.render('settings',{title:"Settings", firstName:firstName, lastName:lastName,
  			 				make: make, model: model, color: color, plateNumber: plateNumber, cardNumber: cardNumber})
+ 			 		});
+ 			 	}
+ 			 }
+
  			});
 
 	} else {
 		res.redirect('/login');
 	};
+	console.log("shrodo");
+
+
 
 }).post((req, res) => {
 	var firstName =req.body.firstName;
