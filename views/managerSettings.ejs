@@ -51,6 +51,8 @@
                     <div>
                       
                     </div>
+                    <input class="btn btn-primary" type="submit" value="Update Profile"/> 
+
                 </form>
             </div>
         </div>
@@ -58,187 +60,12 @@
         <div class="container row">
            <h3>My Parking Lots</h3>
        <div class="container row">
-            <div class="jumbotron col-sm-4 pull-center">
-                <form action="/signup" method="post">
-           <dt>License Plate</dt>	
-                <dd>	
-                     <input type ="text" id="license_no" name="license_no" value="" />	
-                    <span id="err_cc_no" class="jserror"></span>	
-                </dd>
-    <dt>Model</dt>	
-                <dd>	
-                     <input type ="text" id="model_name" name="model_name" value="" />	
-                    <span id="err_cc_no" class="jserror"></span>	
-                </dd>
-<dt>Make</dt>	
-                <dd>	
-                     <input type ="text" id="make_name" name="make_name" value="" />	
-                    <span id="err_cc_no" class="jserror"></span>	
-                </dd>
-<dt>Color</dt>	
-                <dd>	
-                     <input type ="text" id="color_name" name="color_name" value="" />	
-                    <span id="err_cc_no" class="jserror"></span>	
-                </dd>
-              <dt>State</dt>
-              <dd>
-              <table cellpadding="0" cellspacing="0">
-               <tr>
-                  <td><select id="state" name="state">
-                      <option value="">Select a State</option>
-                      <option value="1" selected="selected">AL</option> 
-                      <option value="2">AK</option>
-                      <option value="3">AZ</option>
-                      <option value="4">AR</option>
-                      <option value="5">CA</option>
-                      <option value="6">CO</option>
-                      <option value="7">CT</option>
-                      <option value="8">DE</option>
-                      <option value="9">FL</option>
-                      <option value="10">GA</option>
-                      <option value="11">HI</option>
-                      <option value="12">ID</option> 
-                      <option value="13">IL</option>
-                      <option value="14">IN</option>
-                      <option value="15">IA</option>
-                      <option value="16">KS</option>
-		      <option value="17">KY</option>
-		      <option value="18">LA</option>
-                      <option value="19">ME</option>
-                      <option value="20">MD</option>
-                      <option value="21">MA</option>
-                      <option value="22">MI</option>
-                      <option value="23">MN</option>
-                      <option value="24">MS</option>
-                      <option value="25">MO</option>
-                      <option value="26">MT</option>
-                      <option value="27">NE</option>
-                      <option value="28">NV</option>
-                      <option value="29">NH</option>
-                      <option value="30">NJ</option>
-                      <option value="31">NM</option>
-                      <option value="32">NY</option>
-                      <option value="33">NC</option>
-                      <option value="34">ND</option>
-                      <option value="35">OH</option>
-                      <option value="36">OK</option>
-                      <option value="37">OR</option>
-                      <option value="38">PA</option>
-                      <option value="39">RI</option>
-                      <option value="40">SC</option>
-                      <option value="41">SD</option> 
-                      <option value="42">TN</option>
-                      <option value="43">TX</option>
-                      <option value="44">UT</option>
-                      <option value="45">VT</option>
-                      <option value="46">VA</option>
-                      <option value="47">WA</option>
-                      <option value="48">WV</option>
-                      <option value="49">QI</option>
-                      <option value="50">WY</option>
-                    </select>                         	
-                        </td>                     	
-                    </tr>                 	
-                </table>             	
-            </dd>
- 
-                 <div>
-
-                  <style>
-.button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-</style>  
-
-                    </div>
-                </form>
+          
 
             </div>
         </div>       
-       <button>Add Vehicle</button>               
-        </div>
+      
 
-       
-           <h3>Payment Methods</h3>
-            <div class="container row">
-            <div class="jumbotron col-sm-4 pull-center">
-                <form action="/signup" method="post">
-
-             
-                <dt>Credit Card Number or Debit Card</dt>	
-                <dd>	
-                     <input type ="text" id="cc_no" name="cc_no" value="1111111111111111" />	
-                    <span id="err_cc_no" class="jserror"></span>	
-                </dd>	
-                <dt>Expiration Date</dt>	
-                <dd>	
-                    <table cellpadding="0" cellspacing="0">	
-                        <tr>	
-                            <td><select id="cc_exp_mm" name="cc_exp_mm">	
-                                <option value="">Select Month</option>	
-                                <option value="1" selected="selected">January</option>                                       	
-                                <option value="2">February</option>                              	
-                                <option value="3">March</option>                           	
-                                <option value="4">April</option>                           	
-                                <option value="5">May</option>                            	
-                                <option value="6">June</option>                            	
-                                <option value="7">July</option>                           	
-                                <option value="8">August</option>                             	
-                                <option value="9">September</option>                     	
-                                <option value="10">October</option>                              	
-                                <option value="11">November</option>                             	
-                                <option value="12">December</option> 	
-                                </select></td>	
-                                <td width="20"&nbsp;	
-                                  </td>	
-                                <td><select id="cc_exp_yyyy" name:"cc_exp_yyyy">	
-                                <option value="2019" selected="selected">2019</option>                                 	
-                                <option value="2020">2020</option>                            	
-                                <option value="2021">2021</option>                            	
-                                <option value="2022">2022</option>                           	
-                                <option value="2023">2023</option>                             	
-                                <option value="2024">2024</option>                     	
-                                <option value="2025">2025</option>                              	
-                                <option value="2026">2026</option>                             	
-                                <option value="2027">2027</option>	
-                                <option value="2028">2028</option>                             	
-                                <option value="2029">2029</option>	
-                                <option value="2030">2030</option>	
-                                <option value="2031">2031</option>	
-                                <option value="2032">2032</option>	
-                                <option value="2033">2033</option>	
-                            </select>                         	
-                        </td>                     	
-                    </tr>                 	
-                </table>             	
-            </dd>	
-                <dt>CVV</dt>	
-                <dd>	
-                    <input id="cvv" type="text" size="5" name="cvv" value="111"/>	
-                </dd>	
-   
-               </form>
-                </dl>	
-           </div>
-	
-        <div>
-
-
-     </div>
-
-        </div>
-
-<input class="btn btn-primary" type="submit" value="Update Profile"/>	
 
     </body>
 </html>
