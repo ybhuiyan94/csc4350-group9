@@ -13,6 +13,7 @@ var ParkingLot = require('./models/parkinglot');
 var Own = require('./models/own');
 var Pay = require('./models/pay');
 
+// Use this to create a parking lot
 // ParkingLot.create({            
 // 			address: '265 Peachtree St',
 // 			totalSpaces: 600,

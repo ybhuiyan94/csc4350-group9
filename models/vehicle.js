@@ -3,7 +3,7 @@ var Sequelize = require('sequelize');
 // create a sequelize instance with our local postgres database information.
 var sequelize = new Sequelize('postgres://Group9:Akshita1234@aagn29ugs86czq.c31f2v7z8hc6.us-west-2.rds.amazonaws.com:5432/postgres');
 
-// setup User model and its fields.
+// setup Vehicle model and its fields.
 var Vehicle = sequelize.define('vehicle', {
     state: {
         type: Sequelize.STRING,
